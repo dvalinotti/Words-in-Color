@@ -1,0 +1,85 @@
+<!doctype html>
+<html class="no-js" lang="en">
+ <head>
+   <meta charset="utf-8">
+   <meta http-equiv="x-ua-compatible" content="ie=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Name to Colors</title>
+   <link rel="stylesheet" href="css/app.css">
+
+ </head>
+ <body>
+   <div class="grid-container">
+     <div class="grid-x grid-x-padding">
+       <div class="cell small-12">
+         <h1 class="anim-header">Name to Colors</h1>
+       </div>
+     </div>
+     <div class="grid-x grid-x-padding">
+       <div class="cell small-12">
+         <label for="first">First Name</label>
+         <br>
+         <input type="text" name="first" id="first" value="Daniel">
+         <br>
+         <label for="last">Last Name</label>
+         <br>
+         <input type="text" name="last" id="last" value="Valinotti">
+         <br>
+         <button type="button" class="button" onclick="submit()">Submit</button>
+       </div>
+     </div>
+   </div>
+   <h5 style="text-align: center; margin: 0 auto">First Name Colors:</h5>
+   <div id="fColors" style="display: flex; flex-wrap: wrap; justify-content:center; width: 100%">
+
+   </div>
+   <div id="lColors" style="display: flex; flex-wrap: wrap; justify-content:center; width: 100%">
+
+   </div>
+   <script>
+     function submit() {
+       var oldColors = document.getElementById("colors").children;
+       if (oldColors.length > 1) {
+         for (var i = 0; i < oldColors.length; i++) {
+           oldColors[i].style.display = "none";
+         }
+       }
+       var firstName = document.getElementById("first").value;
+       var lastName = document.getElementById("last").value;
+
+       generate(firstName);
+     }
+
+     function generate(str) {
+       //console.log(firstName + " " + lastName);
+       var fArr = str.split("");
+       for (var j = 0; j < fArr.length; j+=3) {
+         var colorCode = "#" + buildColor(fArr[j], fArr[j+1], fArr[j+2]);
+         var e = document.createElement(‘div’);
+         e.innerHTML = colorCode;
+         e.setAttribute("style", "width: 300px; height: 300px; padding: 10px; color: white; background-color:" + colorCode + ";");
+         document.getElementById("colors").appendChild(e);
+       }
+     }
+
+     function charToHex(ch) {
+       if (ch != undefined) {
+         var dec = ch.charCodeAt(0);
+       }
+       else {
+         var dec = "00"
+       }
+       return dec.toString(16);
+     }
+     function buildColor(c1, c2, c3) {
+       return "" + charToHex(c1) + charToHex(c2) + charToHex(c3);
+     }
+   </script>
+   <script src="node_modules/jquery/dist/jquery.js"></script>
+   <script src="node_modules/what-input/dist/what-input.js"></script>
+   <script src="node_modules/foundation-sites/dist/js/foundation.js"></script>
+   <script src="js/app.js"></script>
+   <script type="module" src="node_modules/lax.js/lib/lax.js">
+   <script type="module" src="node_modules/animejs/lib/anime.js">
+ </body>
+</html>
