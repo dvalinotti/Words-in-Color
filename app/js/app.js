@@ -20,7 +20,6 @@ function submit() {
         generate(value);
     }
  
- 
 }
 
 // Wrapper function.
@@ -31,9 +30,11 @@ function generate(str) {
     for (var j = 0; j < fArr.length; j += 3) {
         var colorCode = "#" + buildColor(fArr[j], fArr[j + 1], fArr[j + 2]);
         var e = document.createElement('div');
-        e.innerHTML = colorCode;
-        e.classList.add("scale-in-center");
-        e.setAttribute("style", "width: 200px; height: 200px; padding: 10px; color: white; background-color:" + colorCode + ";");
+        var p = document.createElement('p');
+        p.innerHTML = colorCode;
+        e.appendChild(p);
+        e.classList.add("scale-in-center", "color-block");
+        e.setAttribute("style", "background-color:" + colorCode + ";");
         document.getElementById("colors").appendChild(e);
     }
 }
@@ -47,7 +48,6 @@ function charToHex(ch) {
     } else {
         // If the value is empty, ie there are not enough characters to build a color code, generates a random number to replace it.
         var dec = Math.ceil(((getRandomInt(32, 123) - 32) / 90) * 255); 
-        console.log(dec);
     }
     return dec.toString(16);
 }
