@@ -11,6 +11,7 @@ function submit() {
     var value = document.getElementById("sent").value;
     document.getElementById("palette").style.display = "block";
     generate(value);
+    document.documentElement.style.height = "auto";
 }
 
 // Wrapper function.
@@ -22,7 +23,8 @@ function generate(str) {
         var colorCode = "#" + buildColor(fArr[j], fArr[j + 1], fArr[j + 2]);
         var e = document.createElement('div');
         e.innerHTML = colorCode;
-        e.setAttribute("style", "width: 300px; height: 300px; padding: 10px; color: white; background-color:" + colorCode + ";");
+        e.classList.add("scale-in-center");
+        e.setAttribute("style", "width: 200px; height: 200px; padding: 10px; color: white; background-color:" + colorCode + ";");
         document.getElementById("colors").appendChild(e);
     }
 }
