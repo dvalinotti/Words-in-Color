@@ -1,17 +1,26 @@
 $(document).foundation();
 
+var stored = "";
 // Submit button function.
 function submit() {
-    var oldColors = document.getElementById("colors").children;
-    if (oldColors.length > 1) {                         //Clears existing color values when resubmitting.
-        for (var i = 0; i < oldColors.length; i++) {
-            oldColors[i].style.display = "none";
-        }
-    }
     var value = document.getElementById("sent").value;
-    document.getElementById("palette").style.display = "block";
-    generate(value);
-    document.documentElement.style.height = "auto";
+
+    if (value != stored) {
+        //document.documentElement.style.height = "auto";
+        var oldColors = document.getElementById("colors").children;
+        if (oldColors.length > 1) {                         //Clears existing color values when resubmitting.
+            for (var i = 0; i < oldColors.length; i++) {
+                oldColors[i].style.display = "none";
+            }
+        }
+        document.getElementById("palette").style.display = "block";
+
+    
+        stored = value;
+        generate(value);
+    }
+ 
+ 
 }
 
 // Wrapper function.

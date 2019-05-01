@@ -1,11 +1,15 @@
 html {
     height: 100%;
 }
+html > * {
+    height: 100% !important;
+}
 .viewport {
     width: 50%;
     background: white;
     margin: 120px auto;
     padding: 30px;
+    height: min-content;
     min-height: 550px;
 
     .viewport--inner {
