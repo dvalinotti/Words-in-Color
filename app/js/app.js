@@ -1,14 +1,14 @@
 $(document).foundation();
 
-var stored = "";
+var stored = ""; // Initialize variable that will store the current value of the text box - prevents re-randomized color values
 // Submit button function.
 function submit() {
     var value = document.getElementById("sent").value;
 
-    if (value != stored) {
-        //document.documentElement.style.height = "auto";
+    if (value != stored) {                                  // Compares current text field value to stored value to avoid re-randomizing
+        document.documentElement.style.height = "auto";     // Fixes weird style issues 
         var oldColors = document.getElementById("colors").children;
-        if (oldColors.length > 1) {                         //Clears existing color values when resubmitting.
+        if (oldColors.length > 1) {                         // Clears existing color values when resubmitting.
             for (var i = 0; i < oldColors.length; i++) {
                 oldColors[i].style.display = "none";
             }
@@ -64,6 +64,7 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
+// Allows user to hit enter to submit
 $("#sent").keyup(function(event) {
     if (event.keyCode === 13) {
         $("#submit").click();
