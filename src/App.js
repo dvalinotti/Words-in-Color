@@ -14,7 +14,7 @@ class App extends React.Component{
   render() {
     return (
       <div className="App" ref={this.appRef}>
-        <Container style={{paddingTop: 60, maxWidth: 1000}}>
+        <Container style={{paddingTop: 60, paddingBottom: 60, maxWidth: 1000}}>
           <Window appRef={this.state.appRef} />
         </Container>
       </div>
