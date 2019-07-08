@@ -1,7 +1,8 @@
-import React, {Component} from 'react';
-import {Paper, Typography, TextField, Button} from '@material-ui/core'
+import React, {Component, div} from 'react';
+import {Paper, Typography, TextField, Button, IconButton} from '@material-ui/core'
 import ColorContainer from './ColorContainer'
 import generateColor from '../helpers/Generator';
+import GithubIcon from './GithubIcon';
 
 export default class Window extends Component {
     constructor(props) {
@@ -76,15 +77,26 @@ export default class Window extends Component {
         }
     }
 
+    onClick() {
+        window.open("https://github.com/dvalinotti/Words-in-Color", "_blank")
+    }
+
     render() {
         return (
             <Paper style={{padding: 30}}>
-                <Typography variant="h4" style={{textAlign: "left"}}>
-                    Words in Color
-                </Typography>
-                <Typography variant="body2" color="textSecondary" style={{textAlign: "left"}}>
-                    Type some words in the text field for a generated color palette.
-                </Typography>
+                <div style={{display: "flex", justifyContent: "space-between"}} >
+                    <div>
+                        <Typography variant="h4" style={{textAlign: "left"}}>
+                            Words in Color
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" style={{textAlign: "left"}}>
+                            Type some words in the text field for a generated color palette.
+                        </Typography>
+                    </div>
+                    <IconButton onClick={this.onClick}>
+                        <GithubIcon/>
+                    </IconButton>
+                </div>
                 <div style={{
                     display: "flex",
                     justifyContent: "center",
