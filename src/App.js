@@ -15,7 +15,7 @@ class App extends React.Component{
     return (
       <div className="App" ref={this.appRef}>
         <Container style={{paddingTop: 60, maxWidth: 1000}}>
-          <Window appRef={this.state.appRef}/>
+          <Window appRef={this.state.appRef} />
         </Container>
       </div>
     );

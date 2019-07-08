@@ -2,6 +2,7 @@ import React, {Component, div} from 'react';
 import {Paper, Typography, TextField, Button, IconButton} from '@material-ui/core'
 import ColorContainer from './ColorContainer'
 import generateColor from '../helpers/Generator';
+import Typing from 'react-typing-animation';
 import GithubIcon from './GithubIcon';
 
 export default class Window extends Component {
@@ -87,21 +88,21 @@ export default class Window extends Component {
                 <div style={{display: "flex", justifyContent: "space-between"}} >
                     <div>
                         <Typography variant="h4" style={{textAlign: "left"}}>
-                            Words in Color
+                            <Typing>
+                                Words in Color
+                            </Typing>
                         </Typography>
                         <Typography variant="body2" color="textSecondary" style={{textAlign: "left"}}>
-                            Type some words in the text field for a generated color palette.
+                            <Typing speed={15}>
+                                Type some words in the text field for a generated color palette.
+                            </Typing>
                         </Typography>
                     </div>
                     <IconButton onClick={this.onClick}>
                         <GithubIcon/>
                     </IconButton>
                 </div>
-                <div style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "baseline"
-                }}>
+                <div className="formContainer">
                     <form noValidate autoComplete="off" style={{display: "flex", padding: '15px 15px 15px 0px', flexGrow: 8}} onSubmit={(e) => {
                         this.onSubmit(); e.preventDefault();
                     }}>

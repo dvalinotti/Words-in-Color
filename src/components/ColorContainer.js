@@ -25,9 +25,7 @@ export default class ColorContainer extends Component {
         } 
         else {
             return (
-                <div style={{
-                    display: "flex"
-                }}>
+                <div className="colorContainer">
                     {this.state.colors.map((item, key) => (
                         <Delay wait={key * 80}>
                             <ColorBox key={item} colorCode={item}/>

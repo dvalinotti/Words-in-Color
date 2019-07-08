@@ -46,3 +46,32 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.colorContainer {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+}
+.formContainer {
+  display: flex;
+  align-items: baseline
+  
+}
+@media (max-width: 975px) {
+  .colorContainer {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 450px) {
+  .formContainer {
+    flex-direction: column;
+    padding-bottom: 30px;
+    align-items: center;
+  }
+
+  html {
+    height: unset
+  }
+}
