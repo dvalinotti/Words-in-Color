@@ -1,7 +1,7 @@
 # Words in Color
 ## A web application that takes a text input and transforms it into a color palette.
 
-[DEMO](https://pedantic-borg-94e74d.netlify.com)
+[DEMO](https://pedantic-borg-94e74d.netlify.com/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
